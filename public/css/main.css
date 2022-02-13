@@ -39,7 +39,7 @@ main {
 
 .main-header__item a:hover,
 .main-header__item a:active,
-.main-header__item a:focus {
+.main-header__item a.active {
   color: rgb(85, 54, 224);
 }
 
@@ -57,6 +57,7 @@ main {
 .form-control input {
   display: block;
   width: 100%;
+  margin-bottom: 0.5rem;
 }
 
 .form-control input {
