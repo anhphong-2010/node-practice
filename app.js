@@ -1,12 +1,12 @@
 const express = require("express");
+const bodyParser = require("body-parser");
+
 const app = express();
 
-app.set("view engine", "pug");
+app.set("view engine", "ejs");
 app.set("views", "views");
 
 const path = require("path");
-const bodyParser = require("body-parser");
-const rootDir = require("./utils/path");
 const adminData = require("./routes/admin");
 const shopRoutes = require("./routes/shop");
 
