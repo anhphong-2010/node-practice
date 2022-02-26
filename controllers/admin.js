@@ -1,23 +1,23 @@
 const Product = require("../models/product");
 
 exports.getAddProduct = (req, res, next) => {
-  // res.sendFile(path.join(rootDir, "views", "add-product.html"));
-  res.render("add-product", {
-    pageTitle: "Add product",
+  res.render("admin/add-product", {
     path: "/admin/add-product",
-    mainCSS: true,
-    productCSS: true,
-    activeAddProduct: true,
+    pageTitle: "Add product",
   });
 };
 
 exports.postAddProduct = (req, res, next) => {
-  const product = new Product(req.body.title);
+  const title = req.body.title;
+  const imageUrl = req.body.imageUrl;
+  const price = req.body.price;
+  const description = req.body.description;
+  const product = new Product(title, imageUrl, price, description);
   product.save();
   res.redirect("/");
 };
 
-exports.getProduct = (req, res, next) => {
+exports.getProducts = (req, res, next) => {
   Product.fetchAll((products) => {
     res.render("admin/products", {
       prods: products,
